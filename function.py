@@ -1,3 +1,4 @@
+import re
 def sums(nums,op='*'):
     num=nums[0]
     for i in nums[1:]:
@@ -32,11 +33,6 @@ def number(st):
 # print(number('4523kjhkjl52jkhkjl'))
 
 def solution(s):
-    w=[]
-    i=0
-    if len(s)%2:
-        s+='_'
-    for i in range(0,len(s),2):
-        w.append(s[i:i+2])
-    return w
+    return re.findall(".{2}",s+"_")   
+
 print(solution('abc'),solution('abcdef'))
