@@ -1,3 +1,5 @@
+
+import string
 import re
 def sums(nums,op='*'):
     num=nums[0]
@@ -114,3 +116,28 @@ def idn(st:str,align='all',og=' '):
   return st
 print(idn('elzero','all',' ')) # elzero### or elzero or ###elzero
 
+def clean_string(st,keepnum=True):
+  w=""
+  if keepnum==True:
+    for i in st:
+      if i in string.hexdigits or i in string.ascii_uppercase or i=="_":
+        w+=i
+  if keepnum==False:
+    for i in st:
+      if i in string.ascii_letters or i=="_":
+        w+=i
+  return w
+# print(clean_string("sjdflaj_fja5_82ut8/_/]'`1",False))
+
+def pares_string(st):
+  w=""
+  for i in st:
+    if i=='&':
+      w+="\n"
+      continue
+    if w=='=':
+      i+=":"
+      continue
+    w+=i
+  return w
+print(pares_string("name=nawaf&age=14&")) 
